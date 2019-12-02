@@ -28,13 +28,13 @@ pipeline {
                 }
               }
         }
-        stage('Scan Twistlock'){
+    /*    stage('Scan Twistlock'){
             steps{
                 script{
-           //         twistlockScan ca: '', cert: '', compliancePolicy: 'critical', containerized: false, dockerAddress: 'unix:///var/run/docker.sock', gracePeriodDays: 3, ignoreImageBuildTime: false, image: "${env.image_name}", key: '', logLevel: 'true', policy: 'critical', requirePackageUpdate: true, timeout: 10
+                    twistlockScan ca: '', cert: '', compliancePolicy: 'critical', containerized: false, dockerAddress: 'unix:///var/run/docker.sock', gracePeriodDays: 3, ignoreImageBuildTime: false, image: "${env.image_name}", key: '', logLevel: 'true', policy: 'critical', requirePackageUpdate: true, timeout: 10
                 }
             }
-        }
+        } */
         stage('Deploy Image') {
             steps{
                 script {
