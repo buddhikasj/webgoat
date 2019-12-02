@@ -13,7 +13,8 @@ pipeline {
         stage('Checkout') {
             steps {
                 echo 'Checkout..'
-                checkout scm
+                echo 'Already done..'
+         //       checkout scm
             }
         }
         stage('Building Image') {
