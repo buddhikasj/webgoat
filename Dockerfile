@@ -1,4 +1,4 @@
-FROM openjdk:8
+FROM openjdk:12
 COPY . /usr/app/
 WORKDIR /usr/app
 EXPOSE 8080
