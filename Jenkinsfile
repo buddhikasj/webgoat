@@ -4,7 +4,7 @@ pipeline {
    // registry = "gustavoapolinario/docker-test"
     registryCredential = 'docker-hub'
     customImage = ''
-    image_name = 'buddhikasj88/contrast-webgoat:'+"${env.BUILD_ID}"
+    //image_name = 'buddhikasj88/contrast-HTTPServer:'+"${env.BUILD_ID}"
     //JENKINS_PATH = twistlockScan ca: '', cert: '', compliancePolicy: 'critical', containerized: false, dockerAddress: 'unix:///var/run/docker.sock', gracePeriodDays: 3, ignoreImageBuildTime: false, image: "${env.image_name}", key: '', logLevel: 'true', policy: 'critical', requirePackageUpdate: true, timeout: 10
     }
     agent any
@@ -22,7 +22,7 @@ pipeline {
                 script {
                //     docker.withRegistry('https://index.docker.io/v1/', 'docker-hub') 
 
-               customImage = docker.build("buddhikasj88/contrast-webgoat:${env.BUILD_ID}")
+               customImage = docker.build("buddhikasj88/contrast-HTTPServer:${env.BUILD_ID}")
 
                     /* Push the container to the custom Registry */
                 //    customImage.push('latest') 
@@ -49,7 +49,7 @@ pipeline {
         stage('Deploy') {
             steps {
                 echo 'Deploying....'
-               // sh 'docker run --rm -p 80:8080 --name testcontainer -d buddhikasj88/contrast:latest'
+                sh 'docker run --rm -p 80:8080 --name testcontainer -d buddhikasj88/HTTPServer:latest'
             }
         }
         
