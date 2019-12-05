@@ -22,7 +22,7 @@ pipeline {
                 script {
                //     docker.withRegistry('https://index.docker.io/v1/', 'docker-hub') 
 
-               customImage = docker.build("buddhikasj88/contrast-HTTPServer:${env.BUILD_ID}")
+               customImage = docker.build("buddhikasj88/contrast-httpserver:${env.BUILD_ID}")
 
                     /* Push the container to the custom Registry */
                 //    customImage.push('latest') 
@@ -49,7 +49,7 @@ pipeline {
         stage('Deploy') {
             steps {
                 echo 'Deploying....'
-                sh 'docker run --rm -p 80:8080 --name testcontainer -d buddhikasj88/HTTPServer:latest'
+                sh 'docker run --rm -p 80:8080 --name testcontainer -d buddhikasj88/httpserver:latest'
             }
         }
         
