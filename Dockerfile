@@ -1,4 +1,4 @@
-FROM java:8-jdk-alpine
+FROM openjdk:8-jre-alpinee
 COPY . /usr/app/
 WORKDIR /usr/app
 EXPOSE 8080
