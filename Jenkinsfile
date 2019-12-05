@@ -4,7 +4,7 @@ pipeline {
    // registry = "gustavoapolinario/docker-test"
     registryCredential = 'docker-hub'
     customImage = ''
-    image_name = 'docker.io/buddhikasj88/contrast-HTTPserver:'+"${env.BUILD_ID}"
+    image_name = 'docker.io/buddhikasj88/contrast-httpserver:'+"${env.BUILD_ID}"
     //JENKINS_PATH = twistlockScan ca: '', cert: '', compliancePolicy: 'critical', containerized: false, dockerAddress: 'unix:///var/run/docker.sock', gracePeriodDays: 3, ignoreImageBuildTime: false, image: "${env.image_name}", key: '', logLevel: 'true', policy: 'critical', requirePackageUpdate: true, timeout: 10
     }
     agent any
