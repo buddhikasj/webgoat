@@ -51,7 +51,7 @@ pipeline {
         stage('Deploy') {
             steps {
                 echo 'Deploying....'
-                sh 'docker run --rm -p 80:8080 --name testcontainer -d buddhikasj88/contrast-httpserver:latest'
+                sh 'docker run --rm -p 80:8080 --name testcontainer -d buddhikasj88/contrast-httpserver:${env.BUILD_ID}'
             }
         }
         
