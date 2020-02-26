@@ -1,4 +1,4 @@
-FROM openjdk:12-alpine
+FROM openjdk:15-alpine
 COPY . /usr/app/
 WORKDIR /usr/app
 EXPOSE 8080
