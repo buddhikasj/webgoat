@@ -1,2 +1,4 @@
 # webgoat
-testing HTTP server with contrast embedded through aqua
+testing HTTP server with 
+contrast embedded 
+and scanned via aqua
