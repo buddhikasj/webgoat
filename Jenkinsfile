@@ -29,6 +29,16 @@ pipeline {
                 }
               }
         }
+        stage('Scan Aqua'){
+            steps{
+                script{
+                    //aqua locationType: 'hosted', registry: 'Docker Hub', hostedImage: "${env.image_name}",  notCompliesCmd: '', onDisallowed: 'ignore', hideBase: false, showNegligible: false
+                    aqua locationType: 'local', localImage: 'nginx', hideBase: false, notCompliesCmd: '', onDisallowed: 'ignore', showNegligible: false
+                    //aqua locationType: 'local', localImage: "${env.image_name}", hideBase: false, notCompliesCmd: '', onDisallowed: 'fail', showNegligible: false
+                    //twistlockScan ca: '', cert: '', compliancePolicy: 'critical', containerized: false, dockerAddress: 'unix:///var/run/docker.sock', gracePeriodDays: 3, ignoreImageBuildTime: false, image: "${env.image_name}", key: '', logLevel: 'true', policy: 'critical', requirePackageUpdate: true, timeout: 10
+                }
+            }
+        } 
         stage('Deploy Image') {
             steps{
                 script {
@@ -39,16 +49,6 @@ pipeline {
                 }
             }
         }
-        stage('Scan Aqua'){
-            steps{
-                script{
-                    //aqua locationType: 'hosted', registry: 'Docker Hub', hostedImage: "${env.image_name}",  notCompliesCmd: '', onDisallowed: 'ignore', hideBase: false, showNegligible: false
-                    //aqua locationType: 'local', localImage: 'mongo', hideBase: false, notCompliesCmd: '', onDisallowed: 'ignore', showNegligible: false
-                    aqua locationType: 'local', localImage: "${env.image_name}", hideBase: false, notCompliesCmd: '', onDisallowed: 'fail', showNegligible: false
-                    //twistlockScan ca: '', cert: '', compliancePolicy: 'critical', containerized: false, dockerAddress: 'unix:///var/run/docker.sock', gracePeriodDays: 3, ignoreImageBuildTime: false, image: "${env.image_name}", key: '', logLevel: 'true', policy: 'critical', requirePackageUpdate: true, timeout: 10
-                }
-            }
-        } 
         stage('Deploy') {
             steps {
                 echo 'Deploying....'
